@@ -1,0 +1,126 @@
+.special-products {
+    padding: 20px;
+}
+
+.section-title {
+    text-align: right;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.products-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    /* برای ریسپانسیو */
+}
+
+.large-box {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: #F9F9F9;
+    border-radius: 8px;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.large-box img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    cursor:pointer;
+    transition: transform 0.3s ease-in-out;
+}
+.large-box img:hover{
+    transform: scale(1.1);
+}
+.large-box .product-info {
+    padding: 15px;
+}
+
+.large-box .prices {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.small-boxes {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.small-box {
+    width: calc(50% - 10px);
+    background: #F9F9F9;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.small-box img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    cursor:pointer;
+    transition: transform 0.3s ease-in-out;
+}
+.small-box img:hover{
+    transform: scale(1.1);
+}
+.small-box .product-info {
+    padding: 10px;
+}
+
+.small-box .prices {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.discount-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: black;
+    color: white;
+    font-size: 0.8rem;
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+
+.product-info{
+ text-align: right;   
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.discounted-price {
+    color: #2D89EF;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .products-container {
+        flex-direction: column;
+    }
+
+    .large-box {
+        flex: none;
+        width: 100%;
+    }
+
+    .small-box {
+        width: calc(50% - 10px);
+    }
+}

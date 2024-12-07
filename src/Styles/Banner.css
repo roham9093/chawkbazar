@@ -1,0 +1,68 @@
+.banner-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .row1 {
+    display: flex;
+    gap: 0; /* فاصله بین ستون‌ها در یک ردیف */
+    margin-bottom:0; /* فاصله بین ردیف‌ها */
+  }
+  
+  .row:last-child {
+    margin-bottom: 0; /* حذف فاصله اضافی برای آخرین ردیف */
+  }
+  
+  .box {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* برای ایجاد افکت مورب */
+    overflow: hidden; /* محدود کردن سایه درون جعبه */
+    padding:3px;
+  }
+  
+  .box img {
+    max-width: 100%;
+    height: 100%;
+    box-sizing: border-box; /* تصاویر داخل جعبه به خوبی قرار می‌گیرند */
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out; /* انیمیشن برای زوم */
+  }
+  
+  .box::after {
+    content: '';
+    position: absolute;
+    top: -100%; /* شروع از بیرون تصویر */
+    left: 0;
+    width: 100%;
+    height: 200%; /* برای پوشش کامل تصویر با مورب */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0));
+    transform: translateX(-100%);
+    transition: transform 0.5s ease-in-out; /* حرکت نرم سایه */
+    pointer-events: none; /* جلوگیری از تأثیر سایه بر کلیک */
+  }
+  
+  .box:hover::after {
+    transform: translateX(100%); /* حرکت سایه از چپ به راست */
+  }
+  
+  .box.half {
+    flex: 2; /* دو برابر فضای دیگر جعبه‌ها */
+  } 
+  
+  @media (max-width: 765px) {
+    .row {
+      flex-direction: column;
+      margin-bottom: 10px; /* فاصله بین دیوها در حالت موبایل */
+    }
+  
+    .box.half {
+      flex: 1; /* در موبایل، تمام جعبه‌ها مساوی می‌شوند */
+    }
+    .box{
+        padding:2px;
+    }
+  }
+  

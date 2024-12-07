@@ -1,0 +1,101 @@
+.nes-sell-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 محصول در هر ردیف */
+  gap: 20px;
+  padding: 60px 10px 10px; /* فضای بالای کانتینر برای عنوان‌ها */
+  border: 1px solid rgba(0, 0, 0, 0.141);
+  position: relative; /* برای موقعیت‌دهی متن‌های عنوان */
+}
+
+.title {
+  position: relative;
+}
+
+.title-left {
+  position: absolute;
+  top: 10px;
+  right: 10px; /* قرارگیری در بالا سمت چپ */
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #333;
+}
+
+.title-right {
+  direction: rtl;
+  position: absolute;
+  top: 10px;
+  left: 10px; /* قرارگیری در بالا سمت راست */
+  font-size: 1.2em;
+  font-style: italic;
+  color: #ff5722;
+}
+
+.product-card {
+  border-radius: 8px;
+  padding-top: 15px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.frame-image {
+  overflow: hidden;
+  width: 100%; /* عرض کادر والد 100% */
+  height: 270px; /* ارتفاع ثابت برای تصاویر */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-image {
+  width: 100%; /* عرض عکس برابر عرض والدش */
+  height: 100%; /* ارتفاع عکس برابر ارتفاع والدش */
+  object-fit: cover; /* تناسب تصویر حفظ می‌شود */
+  border-radius: 4px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.product-name {
+  font-weight: bold;
+  text-align: right;
+  font-size: 1.2em;
+  margin: 10px 0;
+  color: #333;
+}
+
+.product-description {
+  text-align: right;
+  font-size: 0.9em;
+  color: #555;
+  margin: 5px 0;
+}
+
+.product-price {
+  font-weight: bold;
+  text-align: right;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #2d89ef;
+}
+
+@media (max-width: 1024px) {
+  .nes-sell-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 محصول در هر ردیف */
+  }
+}
+
+@media (max-width: 768px) {
+  .nes-sell-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 محصول در هر ردیف */
+  }
+}
+
+@media (max-width: 480px) {
+  .nes-sell-container {
+    grid-template-columns: repeat(2, 1fr); /* 1 محصول در هر ردیف */
+  }
+}

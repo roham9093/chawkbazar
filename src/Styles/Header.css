@@ -1,0 +1,288 @@
+/* هدر کلی */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  border-bottom: 1px solid #ddd;
+  padding: 1rem;
+}
+
+/* لوگو */
+.logo img {
+  width: 120px;
+}
+
+/* منو */
+.navbar {
+  flex-grow: 1;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* استایل‌های کلی منو */
+.menu {
+  list-style: none;
+  margin: 0;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.menu-item {
+  position: relative;
+  /* برای زیرمنو */
+  cursor: pointer;
+}
+.rotateIcon{
+  transition:all 0.3s;
+}
+.menu-item:hover .rotateIcon{
+  color: rgb(30, 0, 255);
+  transform: rotate(180deg);
+}
+
+/* استایل برای زیرمنو و سر تیترها */
+.submenu-categories {
+  display: flex;
+  /* برای چیدن دسته‌بندی‌ها کنار هم */
+  gap: 15px;
+  /* فاصله بین سر تیترها */
+  margin-bottom: 15px;
+  /* فاصله از محصولات زیر */
+  list-style: none;
+  padding: 0;
+}
+
+.submenu-category {
+  font-size: 0.9rem;
+  /* اندازه فونت کوچکتر */
+  font-weight: normal;
+  color: #333;
+  cursor: pointer;
+  padding: 5px 10px;
+  text-align: center;
+  background-color: rgb(13,110,253);
+  color: white;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+
+/* استایل برای محصولات زیر هر دسته */
+.submenu-products {
+  display: flex;
+  flex-wrap: wrap;
+  /* محصولات در چند ردیف قرار بگیرند */
+  gap:10px;
+  /* فاصله بین محصولات */
+  margin-top: 20px;
+}
+
+.submenu-category-products {
+  width:18%;
+  /* عرض هر دسته‌بندی 30% */
+  padding: 10px;
+  background-color: #fafafa;
+  border-radius:10px;
+  transition:background-color 0.3s ;
+}
+.submenu-category-products:hover{
+  background-color: #f2f2f2;
+}
+
+.category-title {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #444;
+  margin-bottom: 10px;
+  text-align: right;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  /* راست‌چین بودن عنوان */
+}
+
+/* استایل برای هر محصول */
+.submenu-product {
+  padding: 8px 0;
+  /* background-color: #f9f9f9; */
+  border-radius: 5px;
+  margin-bottom: 5px;
+  text-align: right;
+  /* راست‌چین بودن متن محصول */
+}
+
+.submenu-product p {
+  font-size: 0.8rem;
+  /* اندازه فونت کوچکتر برای محصولات */
+  color: #333;
+  margin: 0;
+}
+
+/* برای موبایل، دسته‌بندی‌ها و محصولات به صورت کامل عرض را اشغال می‌کنند */
+@media (max-width: 768px) {
+  .submenu-categories {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .submenu-products {
+    display: block;
+  }
+
+  .submenu-category-products {
+    width: 100%;
+    /* هر دسته‌بندی در موبایل یک خط کامل را اشغال می‌کند */
+  }
+
+  .submenu-product {
+    width: 100%;
+    /* هر محصول در موبایل یک خط کامل را اشغال می‌کند */
+  }
+}
+
+/* برای سایزهای بزرگتر (دسکتاپ) */
+@media (min-width: 768px) {
+  .submenu-product {
+    width: 100%;
+    /* عرض کامل محصولات */
+  }
+}
+
+
+.submenu {
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
+  position: absolute;
+  top: 100%;
+  /* زیر منوی اصلی */
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  display: none;
+  /* پیش‌فرض مخفی است */
+  min-width: 750px;
+  z-index: 1000;
+  transition: all 0.1s;
+  opacity: 0;
+}
+
+.submenu li {
+  padding: 10px 15px;
+  white-space: nowrap;
+  /* جلوگیری از شکستن متن */
+}
+
+.submenu li:hover {
+  background-color: #f5f5f5;
+}
+
+/* نمایش زیرمنو با هاور */
+.menu-item:hover .submenu {
+  display: block;
+  opacity: 1;
+}
+
+
+.menu li {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+/* آیکون‌ها و لاگین */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.icon {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.login {
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* حالت اولیه (مخفی) */
+.custom-offcanvas {
+  transform: translateX(100%);
+  opacity: 1;
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+}
+
+/* حالت نمایش */
+.custom-offcanvas.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* انیمیشن بسته شدن */
+.custom-offcanvas.hiding {
+  transform: translateX(-100%);
+  opacity: 1;
+}
+
+
+
+/* منو موبایل */
+.menu-mobile {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+  width: 100%;
+}
+
+.menu-mobile li {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  text-align: left;
+}
+
+/* جعبه جستجو */
+.search-box {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 0.5rem;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* دکمه‌ها */
+button {
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 0.75rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button.w-100 {
+  width: 100%;
+}
+
+button.my-2 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.icon {
+  font-size: 1.2rem;
+  color: #666;
+  cursor: pointer;
+}

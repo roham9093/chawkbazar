@@ -1,0 +1,69 @@
+.container-pos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap; /* جلوگیری از رفتن دیوها به خط بعدی */
+}
+
+.box-pos {
+    position: relative;
+    flex: 1;
+    max-width: 50%;
+    border-radius: 0;
+    overflow: hidden;
+    margin: 0; /* حذف فاصله بین دیوها */
+}
+.box-pos:hover .box-image-pos{
+    transform: scale(1.1);
+}
+.left-pos {
+    background-color: #ECE7E3;
+}
+
+.right-pos {
+    background-color: #F4F4F4;
+}
+
+.box-image-pos {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.button-pos {
+    direction: rtl;
+    position: absolute;
+    background-color: white;
+    color:black;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size:1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.button-pos:hover{
+    color:white;
+    background-color: black;
+}
+.button-pos.bottom-right-pos {
+    bottom: 20px;
+    right: 23px;
+}
+
+.button-pos.bottom-left-pos {
+    bottom: 20px;
+    left: 23px;
+}
+
+@media (max-width: 768px) {
+    .box-pos {
+        max-width: 50%;
+    }
+
+    .button-pos {
+        font-size:1rem;
+        padding: 8px 15px;
+    }
+}
